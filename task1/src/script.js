@@ -14,6 +14,7 @@ const textArea = document.getElementById("form-result");
 const codeTest = new RegExp("[0-9]{4}");
 const dateTest = new RegExp("[0-9]{2}/[0-9]{2}/[0-9]{4}");
 
+// Checking any selected features and return a string according to the required format
 function checkFeatures() {
   let featuresArray = [];
   if (featuresHeating.checked) {
@@ -37,6 +38,7 @@ function checkFeatures() {
   });
 }
 
+// Change the date from a DD/MM/YYYY into a YYYY/MM/DD format
 function getDate(str) {
   let dateArray = str.split("/");
   return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
@@ -47,6 +49,7 @@ const getAge = (dob) => {
   return Math.floor((new Date() - dob.getTime()) / 3.15576e+10);
 }
 
+// For any actions that would render the textarea according to the spec
 function TriggerRender() {
   if (streetName.value.length < 3 || streetName.value.length > 50) {
     textArea.value = "Please input a valid street name";
@@ -63,8 +66,10 @@ function TriggerRender() {
   }
 }
 
+// Render everytime a form is changed
 form.addEventListener("change", TriggerRender);
 
+// Reset every element to their default values when the reset button is clicked
 resetButton.addEventListener("click", () => {
   streetName.value = "";
   textArea.value = "";
@@ -78,6 +83,7 @@ resetButton.addEventListener("click", () => {
   featuresSandpit.checked = false;
 });
 
+// Select / Deselect features when this button is clicked
 selectAllButton.addEventListener("click", () => {
   if (selectAllButton.value === "Deselect all") {
     featuresHeating.checked = false;
@@ -95,6 +101,7 @@ selectAllButton.addEventListener("click", () => {
   TriggerRender();
 });
 
+// Change the text of the select-all-btn whenever all of the features are selected
 function changeSelectAll() {
   if (featuresHeating.checked === true &&
       featuresAirconditioning.checked === true &&
@@ -107,6 +114,7 @@ function changeSelectAll() {
   }
 }
 
+// Trigger the change of the text of the select-all-btn whenever needed
 featuresHeating.addEventListener("change", changeSelectAll);
 featuresAirconditioning.addEventListener("change", changeSelectAll);
 featuresPool.addEventListener("change", changeSelectAll);
