@@ -18,7 +18,7 @@ const dateTest = new RegExp("[0-9]{2}/[0-9]{2}/[0-9]{4}");
 
 // Checking any selected features and return a string according to the required format
 const checkFeatures = () => {
-  let featuresArray = [];
+  const featuresArray = [];
   if (featuresHeating.checked) {
     featuresArray.push("Heating");
   }
@@ -35,34 +35,32 @@ const checkFeatures = () => {
     featuresArray.push("no features");
   }
   return featuresArray.reduce(function (prev, curr, index) {
-    if (index === 0) {
-      return curr;
-    }
+    if (index === 0) return curr;
     return prev + (index === featuresArray.length - 1 ? ", and " : ", ") + curr;
   });
 };
 
-// Change the date from a DD/MM/YYYY into a YYYY/MM/DD format
+// Change the date from a DD/MM/YYYY into a YYYY/DD/MM format
 const convertDate = (str) => {
-  let dateArray = str.split("/");
+  const dateArray = str.split("/");
   return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
 };
 
 // Calculating current age from given dob
 const getAge = (dob) => {
-  let age = 0;
-  let currDate = new Date();
+  const currDate = new Date();
   const currYear = currDate.getFullYear();
   const currMonth = currDate.getMonth() + 1;
   const currDay = currDate.getDate();
-  let birthArray = dob.split("/");
+  const birthArray = dob.split("/");
   const birthYear = parseInt(birthArray[2]);
   const birthMonth = parseInt(birthArray[1]);
   const birthDay = parseInt(birthArray[0]);
 
-  age += currYear - birthYear;
+  let age = currYear - birthYear;
   if (
-    currMonth < birthMonth || (currMonth === birthMonth && currDay < birthDay)
+    currMonth < birthMonth ||
+    (currMonth === birthMonth && currDay < birthDay)
   ) {
     age--;
   }
@@ -90,7 +88,7 @@ const TriggerRender = () => {
     )} years old, and your address is ${streetName.value} St, ${
       suburb.value
     }, ${postcode.value}, Australia. Your building is ${
-      buildingType.value === "apartment" ? "an apartment" : "a house"
+      buildingType.value === "apartment" ? "an Apartment" : "a House"
     }, and it has ${checkFeatures()}`;
   }
 };
