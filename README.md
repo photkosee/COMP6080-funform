@@ -2,7 +2,7 @@
 
 ## Change Log
 
-N/A
+1st Oct: Commas for sample outputs included; removal of reactJS pattern comment for marking
 
 ## 1. Before you start
 
@@ -81,9 +81,9 @@ This task requires you to modify `src/script.js` and **only** this file. Everyth
 
 The following are sample outputs for different valid combinations of value entries into the form.
 
-1. You are 23 years old, and your address is UNSW St, Kingsford, 2210, Australia. Your building is a House and it has no features
+1. You are 23 years old, and your address is UNSW St, Kingsford, 2210, Australia. Your building is a House, and it has no features
 
-2. You are 38 years old, and your address is Ferrell St, Glebe, 2525, Australia. Your building is an Apartment and it has AirConditioning
+2. You are 38 years old, and your address is Ferrell St, Glebe, 2525, Australia. Your building is an Apartment, and it has AirConditioning
 
 3. You are 24 years old, and your address is Colin St, Randwick, 2323, Australia. Your building is a House, and it has Heating, AirConditioning, Pool, and Sandpit
 
@@ -132,7 +132,6 @@ Your assignment will be marked according to the criteria below.
 				<li>JS code is appropriately styled and formatted based on common conventions shown in lectures.</li>
 				<li>Ensure that source code (JS) is no more complicated or verbose than necessary to solve a given problem (less is more).</li>
 				<li>Your code is clean, well commented, with well-named variables, and well laid out as highlighted in the course style guide.</li>
-				<li>Code follows common ReactJS patterns that have been discussed in lectures and as highlighted in the course style guide.</li>
 			</ul>
 		</td>
 	</tr>
