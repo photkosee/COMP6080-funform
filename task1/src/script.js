@@ -93,32 +93,6 @@ const TriggerRender = () => {
   }
 };
 
-// Render everytime a form is changed
-form.addEventListener("change", TriggerRender);
-
-// Reset every element to their default values when the reset button is clicked
-resetButton.addEventListener("click", () => {
-  form.reset();
-});
-
-// Select / Deselect features when this button is clicked
-selectAllButton.addEventListener("click", () => {
-  if (selectAllButton.value === "Deselect all") {
-    featuresHeating.checked = false;
-    featuresAirconditioning.checked = false;
-    featuresPool.checked = false;
-    featuresSandpit.checked = false;
-    selectAllButton.value = "Select all";
-  } else {
-    featuresHeating.checked = true;
-    featuresAirconditioning.checked = true;
-    featuresPool.checked = true;
-    featuresSandpit.checked = true;
-    selectAllButton.value = "Deselect all";
-  }
-  TriggerRender();
-});
-
 // Change the text of the select-all-btn whenever all of the features are selected
 const changeSelectAll = () => {
   if (
@@ -131,8 +105,36 @@ const changeSelectAll = () => {
   } else {
     selectAllButton.value = "Select all";
   }
+  TriggerRender();
 };
 
+// Select / Deselect features when this button is clicked
+selectAllButton.addEventListener("click", () => {
+  if (selectAllButton.value === "Deselect all") {
+    featuresHeating.checked = false;
+    featuresAirconditioning.checked = false;
+    featuresPool.checked = false;
+    featuresSandpit.checked = false;
+  } else {
+    featuresHeating.checked = true;
+    featuresAirconditioning.checked = true;
+    featuresPool.checked = true;
+    featuresSandpit.checked = true;
+  }
+  changeSelectAll();
+});
+
+// Reset every element to their default values when the reset button is clicked
+resetButton.addEventListener("click", () => {
+  form.reset();
+});
+
+// Render everytime these lose a focus (on blur) or changing of building types
+streetName.addEventListener("blur", TriggerRender);
+suburb.addEventListener("blur", TriggerRender);
+postcode.addEventListener("blur", TriggerRender);
+dob.addEventListener("blur", TriggerRender);
+buildingType.addEventListener("change", TriggerRender);
 // Trigger the change of the text of the select-all-btn whenever needed
 featuresHeating.addEventListener("change", changeSelectAll);
 featuresAirconditioning.addEventListener("change", changeSelectAll);
