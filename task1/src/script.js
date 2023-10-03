@@ -69,7 +69,7 @@ const getAge = (dob) => {
 };
 
 // For any actions that would render the textarea according to the spec
-const TriggerRender = () => {
+const triggerRender = () => {
   if (streetName.value.length < 3 || streetName.value.length > 50) {
     textArea.value = "Please input a valid street name";
   } else if (suburb.value.length < 3 || suburb.value.length > 50) {
@@ -105,7 +105,7 @@ const changeSelectAll = () => {
   } else {
     selectAllButton.value = "Select all";
   }
-  TriggerRender();
+  triggerRender();
 };
 
 // Select / Deselect features when this button is clicked
@@ -130,11 +130,11 @@ resetButton.addEventListener("click", () => {
 });
 
 // Render everytime these lose a focus (on blur) or changing of building types
-streetName.addEventListener("blur", TriggerRender);
-suburb.addEventListener("blur", TriggerRender);
-postcode.addEventListener("blur", TriggerRender);
-dob.addEventListener("blur", TriggerRender);
-buildingType.addEventListener("change", TriggerRender);
+streetName.addEventListener("blur", triggerRender);
+suburb.addEventListener("blur", triggerRender);
+postcode.addEventListener("blur", triggerRender);
+dob.addEventListener("blur", triggerRender);
+buildingType.addEventListener("change", triggerRender);
 // Trigger the change of the text of the select-all-btn whenever needed
 featuresHeating.addEventListener("change", changeSelectAll);
 featuresAirconditioning.addEventListener("change", changeSelectAll);
