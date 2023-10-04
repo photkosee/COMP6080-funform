@@ -103,7 +103,7 @@ const changeSelectAll = () => {
   ) {
     selectAllButton.value = "Deselect all";
   } else {
-    selectAllButton.value = "Select all";
+    selectAllButton.value = "Select All";
   }
   triggerRender();
 };
@@ -127,6 +127,7 @@ selectAllButton.addEventListener("click", () => {
 // Reset every element to their default values when the reset button is clicked
 resetButton.addEventListener("click", () => {
   form.reset();
+  selectAllButton.value = "Select All";
 });
 
 // Render everytime these lose a focus (on blur) or changing of building types
